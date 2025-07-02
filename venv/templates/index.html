@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧠 Attendance AI - Puneeth@Creates</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Attendance Dashboard</h1>
+    <p class="subtitle">Welcome! Mark your attendance below ⬇️</p>
+
+    <form method="POST" action="/mark" class="form-box">
+      <input type="text" name="name" placeholder="🔤 Enter your name" required />
+      <button type="submit">✅ Mark Attendance</button>
+    </form>
+
+    {% if success %}
+      <p class="success">✔️ Marked Successfully for <strong>{{ name }}</strong>!</p>
+    {% endif %}
+
+    <h2>📄 Today's Attendance</h2>
+    <div class="table-container">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Time</th>
+        </tr>
+        {% for row in records %}
+          <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <footer>
+      <p>Designed by <span class="logo">Puneeth@Creates</span> 🚀 | 2025</p>
+    </footer>
+  </div>
+</body>
+</html>
+
